@@ -46,7 +46,8 @@
 
     // Firebase watcher + initial loader 
     database.ref().on("child_added", function(childSnapshot) {
-
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     //below the code produces what is necessary to calculate next train time and minutes until next train using the first train time and frequency
     var firstTimeConverted = moment(childSnapshot.val().firstTime, "hh:mm").subtract(1, "years");
 
